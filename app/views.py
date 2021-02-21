@@ -7,7 +7,9 @@ This file creates your application.
 
 from app import app
 from flask import render_template, request, redirect, url_for, flash
-
+from forms import ContactForm
+from app import mail
+from flask_mail import Message
 
 ###
 # Routing for your application.
@@ -15,14 +17,31 @@ from flask import render_template, request, redirect, url_for, flash
 
 @app.route('/')
 def home():
-    """Render website's home page."""
-    return render_template('home.html')
-
+  """Render website's home page."""
+  return render_template('home.html')
 
 @app.route('/about/')
 def about():
-    """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+  """Render the website's about page."""
+  return render_template('about.html', name="Dexter Small")
+
+
+@app.route('/contact/', methods=('GET', 'POST'))
+def contact():
+  form = ContactForm()
+
+  if request.method == 'POST':
+    if form.validate_on_submit():
+      msg = Message(form.subject.data,
+                    sender=(form.name.data, form.email.data),
+                    recipients=["to@example.com"])
+      msg.body = form.message.data
+      mail.send(msg)
+
+      flash('Form submitted successfully', 'success')
+      return redirect(url_for('home'))
+
+  return render_template('contact.html', form=form, flash_errors=flash_errors(form))
 
 
 ###
@@ -32,12 +51,12 @@ def about():
 
 # Flash errors from the form if validation fails
 def flash_errors(form):
-    for field, errors in form.errors.items():
-        for error in errors:
-            flash(u"Error in the %s field - %s" % (
-                getattr(form, field).label.text,
-                error
-            ), 'danger')
+  for field, errors in form.errors.items():
+    for error in errors:
+      flash(u"Error in the %s field - %s" % (
+        getattr(form, field).label.text,
+        error
+      ), 'danger')
 
 
 @app.route('/<file_name>.txt')

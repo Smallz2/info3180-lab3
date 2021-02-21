@@ -1,3 +1,182 @@
-body {
-    padding-top: 5rem;
+/* Root Colors */
+
+:root {
+  --blue: #007bff;
+  --light: #f4f6fa;
+  --dark: #232e3c;
+  --light-grey: #ced4da;
 }
+
+/* Body */
+
+body {
+  padding-top: 5rem;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(---dark);
+}
+
+h2, h4 {
+  font-weight: bold;
+}
+
+/* Card */
+
+.custom-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(101,109,119,.16);
+  border-radius: 4px;
+}
+
+.custom-card-top {
+  background-color: var(--blue);
+}
+
+.custom-card-body {
+  padding: 20px 50px 50px 50px;
+}
+
+/* Custom Margins */
+
+.mb-1 {
+  margin-bottom: 10px;
+}
+
+.mb-2 {
+  margin-bottom: 20px;
+}
+
+.mb-3 {
+  margin-bottom: 30px;
+}
+
+.mb-4 {
+  margin-bottom: 40px;
+}
+
+.mt-3 {
+  margin-bottom: 30px;
+}
+
+/* General */
+
+.flex .custom-col img {
+  width: 50%;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+}
+
+.flex .custom-col {
+  display: flex;
+  flex-direction: column;
+  flex: 500px;
+  margin: 10px;
+}
+
+.flex .custom-col .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: white;
+}
+
+.custom-text-muted {
+  font-weight: 300;
+  color: #6c757d;
+}
+
+.custom-btn {
+  font-weight: 500;
+  line-height: 1.4285714;
+  text-align: center;
+  cursor: pointer;
+  padding: 8px 50px;
+  font-size: 15px;
+  border-radius: 3px;
+  transition: .2s ease all;
+}
+
+.custom-btn:hover {
+  background-color: #134c90;
+  color: white;
+}
+
+.custom-btn-primary {
+  background-color: var(--blue);
+  color: white;
+}
+
+.form-group {
+  width: 100%;
+}
+
+input {
+  display: block;
+  height: 40px;
+  flex: 1;
+  width: 50%;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  text-align: start;
+  border: 1px solid var(--light-grey);
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+textarea {
+  display: block;
+  height: 100px;
+  flex: 1;
+  width: 70%;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  text-align: start;
+  border: 1px solid var(--light-grey);
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--blue);
+  border-radius: 2px;
+  padding: 6px 20px;
+  color: var(--white);
+  border: transparent;
+  background-color: var(--blue);
+  border-radius: 2px;
+}
+
+.custom-text-red {
+  color: red;
+  font-weight: bold;
+}
+
+label {
+  font-weight: bold;
+}
+
+  
